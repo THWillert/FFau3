@@ -1,0 +1,818 @@
+﻿V0.6.0.5b
+	- Fixed: Syntax-error in _FFIsURL
+
+V0.6.0.4b
+	- Added: iMacros-support to __FFIsURL
+
+V0.6.0.3b
+	- Fixed: _FFCmd undeclared var
+
+V0.6.0.2b
+	- Added: __FFMultiDispatchEvent: the follwing HTML5-events:
+		$_FF_Event_OnContextMenu
+		$_FF_Event_OnFocus
+		$_FF_Event_OnInput
+		$_FF_Event_OnInvalid
+		$_FF_Event_OnReset
+		(not supported by _FFDispatchEvents yet)
+	- Fixed: __FFWaitForRepl: TCP error
+	- Fixed: __FFStartProcess: Missing backslash in Registry path
+	- Fixed: _FFCmd: __FFRcv error check
+
+V0.6.0.1b-13
+	- Fixed: Changed: CLASS:MozillaUIWindowClass to CLASS:MozillaWindowClass
+
+V0.6.0.1b-12
+	- Fixed: error in __FFIsIp
+
+V0.6.0.1b-10
+	- Added: __FFIsIP: IPV6 Support (IVP6, HexCompressed, 6Hex4Dec, Hex4DecCompressed)
+
+V0.6.0.1b-9
+	- Added: __FFStartProcess: 64bit support
+	- Added: __FFIsURL: support for intranet
+	- Changed: _FFQuit now closes FireFox with multiple windows
+	- Fixed: Connection-limit to MozRepl
+
+V0.6.0.1b-8 (by Danp2)
+	- Changed: _FFTabExists to allow search by href
+	- Changed: _FFTabSetSelected to allow selection by href
+	- Changed: SelectWin to check individual tabs
+	- Added: FFau3.SearchTabURL helper function
+	- Fixed: __FFStartProcess
+	- Fixed: _FFGetPosition
+
+V0.6.0.1b-7
+	- New: Internal function: __FFMultiDispatchEvent: Dispatches multiple events on one element
+	- Added: _FFDisPatchEvent can now simulate MouseEvents: click, mousedown, mouseup, mouseover, mousemove, mouseout
+	- Added: Global constants $_FF_Event_*
+	- Changed: Removed connection-limit to MozRepl
+	- Optimized: __FFFilterString
+	- Optimized: __FFB2S (Bool to string)
+	- Optimized: __FFIsIP
+
+V0.6.0.1b-6
+	- Added: Internal function __FFSetTopDocument()
+	- Changed: Default values for _FFXpath: _FFXPath($sQuery, $sAttribute = "", $iReturnType = 9, $iFilter = 0)
+	- Changed/Fixed: _FFSearch($sSearchString[, $bCaseSensitive = False[, $bWholeWord = False[, $bSearchInFrames = True]]])
+	!!! Now you can use as $sSearchString RegExp, too!
+	- Fixed:
+		_FFAction
+		_FFClick
+		_FFFormSubmit
+		_FFLoadWait
+		_FFDisPatchEvent
+		_FFOpenURL
+		_FFTabAdd
+		_FFTabClose
+		_FFTabSetSelected
+		now updating the FFau3.WCD-object (window.content.document)
+	- Fixed: Different problems after _FFTabAdd
+	- Fixed: Different problems after _FFOpenURL
+	- Fixed: Error in _FFAu3Option()
+
+V0.6.0.1b-4
+	- Changed: Default values for _FFXpath: _FFXPath($sQuery, $sAttribute = "", $iReturnType = 9, $iFilter = 0)
+	- Fixed: Different problems after _FFTabAdd
+	- Fixed: Different problems after _FFOpenURL
+	- Fixed: Errorin _FFAu3Option()
+
+V0.6.0.1
+	- Added: Option $_FF_SEARCH_MODE works now for:
+		_FFLinkClick
+		_FFImageClick
+	- Added: _FFClick: Parameter $bLoadWait
+	- Added: _FFLoadWait: Parameter $bStop = stops pageloading after timeout
+		- Added: _FFAu3Option: "LoadWaitStop"
+		- Added: Global var $_FF_LOADWAIT_STOP
+	- Updated: _FFXPath: some optimizations (shorter command strings to send)
+	- Optimized: _FFFormOptionSelect
+	- Optimized: _FFLoadWait
+	- Fixed: _FFGetPosition: Removed error if "MozillaContentWindowClass" is not found
+	- Fixed: _FFSearch: Error with non-ASCII-chars
+	- Fixed: _FFLinkClick: Error with non-ASCII-chars
+	- Fixed: _FFImageClick: Error with non-ASCII-chars
+	- Fixed: _FFAction("alert", ...): Error with non-ASCII-chars
+
+V0.6.0.0b
+	- Added: _FFWindowOpen: new parameter: $bLoadWait
+	- Added: _FFAu3Option / $_FF_SEARCH_MODE = 0 ; 0 = Substring / 1 = Compare
+		_FFImageClick
+	- Removed: _FFSetValueById, _FFSetValueByName ==> _FFSetValue
+	- Removed: _FFGetValueById, _FFGetValueByName ==> _FFGetValue
+	- Removed: _FFFormGetLength ==> _FFGetLength
+	- Removed: _FFTabGetLength ==> _FFGetLength
+	- Removed: _FFTableGetCell ==> _FFXpath
+	- Removed: _FFDisPatchKeyEvent ==> _FFDisPatchEvent
+	- Removed: _FFTabCloseAll ==> _FFTabClose
+	- Removed: _FFFormGetElementsLength: now only returns the DOM-standard length
+	- Removed: _FFRecord* functions and all additions for them in all functions
+	- Changed: _FFAction("copy"): works now only on the current frame
+	- Fixed: _FFFormGetElementsLength: Error Message
+	- Fixed: _FFDispatchEvent: Shortcut for elements
+	For compatibily for older scripts, please use this UDF:
+	http://thorsten-willert.de/Themen/FFau3/FF.au3/FFEx.au3
+
+V0.5.3.10b
+	- Added: _FFGetPosition($sElement = "")
+	- Changed: _FFLoadWait: Removed parameter $iDelay !!!
+	- Changed:__FFStartProcess: error-message
+	- Fixed: _FFFrameEnter: error using a non string-var with $sMode="name"
+	- Fixed: _FFWindowGetHandle: error by reseting the title
+	- Fixed: Errors with _FFObj and _FFObjGet
+
+	Documentation:
+	- Added: _FFDisPatchEvent
+	- Added: _FFImageMapClick
+	- Added: _FFSetValue
+	- Added: _FFGetPosition
+	- Update: _FFFrameEnter
+	- Update: _FFImageClick
+	- Update: _FFImagesGetBySize
+
+
+V0.5.3.9b
+	- Added: _FFImageMapClick($vArea[, $sModeArea = "index"[, $vMap = 0[, $sModeMap = "index"[, $bLoadWait = True]]]])
+	- Added: _FFImageClick: the searchstring is now searched in the attributes of the link and the image
+	- Added: _FFGetValue($sElement[, $sMode = "elements"[, $iIndex = 0[, $iFilter = 0]]])
+	- Added: _FFSetValue($sValue, $sElement[, $sMode = "elements"[, $iIndex = 0]])
+	- Added: Support for nested frames
+	- Added: Global Var $_FF_FRAME - holds the current frame as string
+	- Added: _FFImagesGetBySize: parameter $iPercent +/- tolerance in percent
+	- Added: _FFLoadWaitTimeOut, to change the global-timeout for _FFLoadWait
+	- Added: Global $_FF_LOADWAIT_TIMEOUT = 120000
+	- Added: _FFRecord* : Some functions recording (only a test)
+		- only for use between _FFConnect / _FFStart / _FFIsConnected and _FFDisConnect / _FFQuit
+		- the recorded functions are not the same like in your original script!!!
+	- Added: Global Var $_FF_RECORD - recording on/off
+	- Added: Global Var $_FF_RECORDED_CMD - recorded script
+	- Added: JavaScript: simulateEvent() / replaces simulateClick(), simulateKey(), fireEvent()
+	- Changed: _FFGetValueById and _FFGetValueByName now only wrappers for _FFGetValue
+	- Changed: _FFSetValueById and _FFSetValueByName now only wrappers for _FFSetValue
+	- Changed: Rebuild all frame-functions
+	- Changed: For recording: _FFLoadWait, _FFLinkClick, _FFXPath, _FFImageClick
+	- Changed: Limited timeout for _FFLoadWait to min. 1000ms
+	- Optimized: _FFTableWriteToArray - up to 100% faster
+	- Optimized: _FFAction, _FFLinkClick, _FFFormReset, _FFGetObjectInfo, _FFCmd, _FFWindowGetHandle, _FFObjGet
+	- Removed: _FFFrameGetSelected, __FFAddStatus, __FFRemoveStatus, __FFSetStatus, __FFGetStatus
+	- Removed: JavaScript: searchImageLink(), SearchLink(), simulateClick(), simulateKey(), fireEvent()
+	- Fixed: _FFImagesGetBySize: $sMode now case insensitive
+	- Fixed: _FFDispatchKeyEvent: by using the leading point as shortcut in elements
+	- Fixed: _FFAction("home")
+
+V0.5.3.8b
+	- Added: _FFDispatchEvent($sElement, $sEventType = "change")
+		$sElement = Element or Object from _FFXpath and _FFObj*
+		$sEventType = change|select|focus|blur|resize
+	- Added: _FFDispatchKeyEvent: Now you can use as $sElement objects from _FFXpath and _FFObj*, too
+	- Added: Opt("TCPTimeOut", $_FF_CON_DELAY) to _FFConnect() / for connections over networks
+	- Added: JavaScript: FFau3.fireEvent(oObj,sEventType)
+	- Added: _FFTableWriteToArray: $iFilter-parameter
+	- Changed: _FFObj: Now creates an attribute instead of throwing a message that it doesn't exists
+	- Changed: _FFDispatchKeyEvent: Changed default event-type from keydown to keypress
+	- Changed: _FFTableWriteToArray: Complete new, much faster then the old version
+	- Changed: _FFFrameEnter now returns 1/0 and @extended = index of the entered frame
+	- Fixed: Error in _FFWindowGetHandle (=> _FFWindowSelect, _FFStart ...) with non ASCII-titles
+	- Fixed: Error in _FFFormSubmit
+	- Fixed: Error by sending ' as value
+	- Fixed: Error in _FFFrameEnter when selecting frame by id
+
+V0.5.3.7b
+	- Added: __FFError: OutputDebugString in compiled scripts
+	- Changed: _FFTabExists: Returns now only 1 / 0, @EXTENDED is set to tab-index
+	- Removed: _FFClickXY
+	- Removed: Wrappers for:
+		_FFClickImage (_FFImageClick)
+		_FFClickLink (_FFLinkClick)
+
+V0.5.3.6
+	- Changed: __FFIsURL: now accepts IPs and localhost addresses, too. (thanks to Elena for the suggestions)
+	- Fixed: _FFLoadWait: Corrected the loading time returned from @EXTENDED
+
+V0.5.3.5
+	- Added: _FFLoadWait: @EXTENDED returns the loading time in ms now.
+
+V0.5.3.4
+	- Added: _FFAction: Loadwait now optional
+	- Changed: _FFStart and option $bHide
+	- Fixed: Error with _FFTabGetSelected and _FFTabSetSelected with datatypes on index-mode
+	- Fixed: Error in _FFObj with (string)objects from _FFXpath
+	- Fixed: Error in _FFWindowGetHandle
+	- Fixed: Return value from _FFFrameEnter if mode="name"
+
+V0.5.3.3
+	- Fixed: _FFLinksGetAll: sometimes errors with non ASCII-chars
+
+V0.5.3.2
+	- New: __FFDialogWait($sText[, $sTitle = ""[, $sClose = "close"[, $iTimeOut = 10000]]])
+	Waits for FireFox dialog messages (alert ...)
+	- Fixed: _FFConnect now returns an error if you trie to connect to a non browser window.
+	- Fixed: _FFSetValueById and _FFSetValueByName can now set unicode chars, too.
+	- Fixed: _FFCmd / _FFClick: fixed problems with element-names in arguments e.g:
+	_FFCmd(".ElementName.ElementName ....")
+
+V0.5.3.0:
+	- New: _FFImagesGetBySize: Returns an array with the indizes of all matching images.
+	(_FFXPath only returns images witch haves the attributes width and heigth)
+	- Added: _FFClick can now handle "objects" from _FFObjGet
+	- Added: _FFImageClick: $bLoadWait
+	- Changed: _FFFormGetElementsLength: now counts <input type='image' ..>, too (optional)
+	- Renamed: _FFClickLink => _FFLinkClick !!! (incl. wrapper)
+	- Renamed: _FFClickImage => _FFImageClick !!! (incl. wrapper)
+	- Removed: _FFClickImageBySize !!!
+	- Removed: Wrapper for _FFSetGet()
+	- Optimized: All functions
+	- Updated: All error messages.
+	- Fixed: _FFFrameEnter: if frame-name was "top" or "parent"
+
+V0.5.1.4:
+	- New: _FFObj: access to FireFox objects
+	- New: _FFObjDelete: deleting objects in the FFau3-object
+	- New: _FFObjGet: returns an "object" (string)
+	- New: _FFObjNew: creates a new object in the FFau3-object
+	- New: _FFXPath: Mode 6 and 7 now can set an attribute in all search results e.g.:
+	_FFXPath("//input[@type='checkbox']","checked=false",7)
+	- Fixed: _FFFormSubmit: mode "name"
+	- Fixed: _FFFormReset: mode "name"
+
+V0.5.1.3:
+	- New: _FFWindowGetHandle: returns the window-handle from the current FF window
+	- Added: _FFXpath: FFau3.obj now contains the result node from mode 6 and 7
+	- Added: _FFWindowOpen: @etxended = Window handle
+	- Added: _FFWindowSelect: @etxended = Window handle
+	- Added: _FFWindowOpen: activates the window now (optional)
+	- Added: _FFWindowSelect: activates the window now (optional)
+
+V0.5.1.1:
+	- New: _FFIsConnected() returns 1 if connected to FF, else 0
+	- Added: _FFDispatchKeyEvent: shortcut for "content.document"
+	- Added: _FFDispatchKeyEvent: error if $sElement not exists
+	- Added: _FFClick: error if $sElement not exists
+	- Added: _FFLinksGetAll: more error checks
+	- Added: __FFWaitForRepl: TimeOut time to the $_FF_ERROR_Timeout error message
+	- Added: FFau3.SearchTab: error handling
+	- Changed: _FFTabExists: error handling
+	- Fixed: FFau3.CloseWin / _FFWindowClose
+	- Fixed: FFau3.SelectWin / _FFWindowSelect
+	- Fixed: _FFAction: MozRepl exception if "hideall" was the first time used
+
+V0.5.1.0
+	-Changed: Renamed _FFSetGet => _FFCmd (_FFSetGet still exists as wrapper)
+
+V0.5.0.1:
+	- Added: _FFFormRadioButton returns now errors from _FFXPath
+	- Added: _FFFormCheckBox returns now errors from _FFXPath
+	- Added: _FFFormOptionSelect returns now errors from _FFXPath
+	- Added: _FFConnect: Returns on TCP-errors WSAGetLastError, too
+	- Added: _FFDisConnect: Returns on TCP-errors WSAGetLastError, too
+	- Added: __FFSendJavaScripts:
+		- now deletes the object FF_AutoItScript before creating the new one.
+		- parameter to trace the subimssion of the scripts
+	- Fixed: Error in __FFCheckURL
+	- Fixed: Error in _FFPrefReset if no user value was set.
+	- Fixed: Error in _FFPrefSet error of value comparsion
+	- Fixed: _FFLinksGetAll (errors in FF_AutoItScript.GetLinks and FF_AutoItScript.GetLinkInfo)
+	- Optimized: _FFPref*
+
+V0.5.0.0:
+	- CHANGED: !!! Removed the $Socket parameter from all functions.
+	_FFConnect / _FFStart sets now the global var $_FF_GLOBAL_SOCKET
+	If you wanna use more then one connection you have to backup it before
+	you are useing _FFConnect / _FFStart again.
+	- CHANGED: _FFConnect / _FFStart now only returns 1 / 0
+	- New: _FFClickLink: added $bLoadWait
+	- New: Now URLs e.g. "google.com" are accepted, too.
+
+V0.4.1.5:
+	!!! Last version with $Socket parameter for all functions !!!
+	please use FF.au3 >V0.5.0.0b
+
+	- New: _FFXPath added and changed return-types:
+		$iReturnType - Optional: (Default = 2) :
+		| 0 = ANY_TYPE - not implemented
+		| 1 = NUMBER_TYPE
+		| 2 = STRING_TYPE
+		| 3 = BOOLEAN_TYPE
+		| 4 = UNORDERED_NODE_ITERATOR_TYPE - not implemented
+		| 5 = ORDERED_NODE_ITERATOR_TYPE - not implemented
+		| 6 = UNORDERED_NODE_SNAPSHOT_TYPE
+		| 7 = ORDERED_NODE_SNAPSHOT_TYPE
+		| 8 = ANY_UNORDERED_NODE_TYPE
+		| 9 = FIRST_ORDERED_NODE_TYPE
+		| 10 = COUNT (no a real return type, it just returns the number of matches)
+		| 11 = CONTAINS (stringValue contains substring in $sAttribute)
+		| 12 = STARTS-WITH (stringValue start-with string in $sAttribute)
+		| 13 = SUBSTRING-AFTER (stringValue substring-after in $sAttribute)
+		| 14 = SUBSTRING-BEFORE (stringValue substring-bevore in $sAttribute)
+	- Fixed: Error in _FFRadioButton and changed _FFCheckBox
+	- Fixed: Error in _FFOpenURL
+
+V0.4.1.4:
+	- New: _FFXPath: $iReturnType 10 = CONTAINS / $sAttribute = substring
+	- New: Added error const $_FF_ERROR_InvalidExpression = 11
+	- Changed: Added better error handling to _FFXPath
+	- Changed: _FFFormOptionSelect complete new
+	- Changed: Added better error handling to _FFSearch
+	- Changed: Added added parameter for _FFAction / about e.g. _FFAction($Socket,"about","mozilla")
+	- Changed: Added _FFLoadWait to _FFAction: back, forward, home, reload
+	- Chagend: Added _FFLoadWait to _FFTabExists, because sometimes a "loading" tab was not found.
+	- Changed: _FFClick now returns after a sleep from 25ms
+	- Changed: _FFXPath added keyword Default to the $sAttribute-parameter
+	- Fixed: __FFRecv booleand conversion for _FFXPath
+	- Fixed: _FFXPath removed using StringFormat to avoid errors with '%'
+	- Fixed: _FFXPath handling of non word chars in $sAttribute
+	- Fixed: _FFXPath, now the return value is without leading and trailing withespaces to avoid comparsion errors.
+	- Fixed: _FFFormGetElementsLength
+
+V0.4.1.3:
+	- Added: _FFFormGetElementsLength: Now selects forms by id, too.
+	- Changed: _FFGetLength, can now return the length of all elements
+	- Changed: _FFGetLinks, now with a random delimiter for the attributes to avoid conflicts
+	- Changed: FF_AutoItScript.SearchTab() to search with RegExp
+	-> Changed: _FFTabExists: Now you can use RegExp (case sensitiv)
+	-> _FFTabClose: Now you can use RegExp in $sMode "label" (case sensitiv)
+	-> _FFTabDuplicate: Now you can use RegExp in $sMode "label" (case sensitiv)
+	-> _FFTabSetSelected: Now you can use RegExp in $sMode "label" (case sensitiv)
+	- Changed: "scrollX" and "scrollY" to "scrollXY" => _FFAction($Socket, "scrollXY", iPixelX, iPixelY)
+	- Changed: _FFAction: Replaced $iDelay with a second option-parameter.
+	- Optimized: _FFClickImage
+	- Fixed: _FFGetLength: $sMode now case insensitiv
+	- Fixed: _FFFormCheckBox: Error in xpath
+	- Removed: FF_AutoItScript.SetTarget()
+
+V0.4.1.2:
+	- Added: _FFAction($Socket, "zoom", $iFactor)
+	- Added: _FFAction($Socket, "scrollX", $iPixel)
+	- Added: _FFAction($Socket, "scrollY", $iPixel)
+	- Changed: Removed the $iDelay parameter from _FFSearch
+	- Fixed: _FFAction($Socket,"blank")
+	- Fixed: _FFOpenURL when using in frames
+
+V0.4.1.1:
+	- New: _FFPrefGet(ByRef $Socket, $sName)
+	- New: _FFPrefSet(ByRef $Socket, $sName, $vValue)
+	- New: _FFPrefReset(ByRef $Socket, $sName)
+	- Added: _FFClick can now click on elements by class-name
+	- Added: _FFWriteHTML(ByRef $Socket[, $sHTML = ""[, $sMode = "body"]]) now can write the entire doc, too
+	- Changed: _FFQuit now returns immediately if $Socket = -1
+	- Changed: _FFFormCheckBox(ByRef $Socket, $vBox[, $bChecked = True[, $iBoxNameIndex = 0[, $sBoxMode = "index"[, $vForm = 0[, $sFormMode = "index"]]]]])
+	complete new
+
+V0.4.1.0:
+	- New: _FFWindowClose(ByRef $Socket[, $sSearch = ""[, $sSearchMode = "title"]])
+	- New: _FFWindowSelect(ByRef $Socket[, $sSearch = ""[, $sSearchMode = "title"]])
+	- New: _FFWindowOpen(ByRef $Socket[, $sURL = "about:blank"])
+	- New: _FFWriteHTML(ByRef $Socket[, $sHTML = ""])
+	- New: _FFClickXY(ByRef $Socket[, $iX = 0[, $iY = 0[, $bLoadWait = true]]])
+	- Changed: _FFReadHTML(ByRef $Socket[, $sMode = "body"[, $iFilter = 0]])
+	- Changed: Renamed _FFGetObject to _FFGetObjectInfo (because the result is no "object")
+	- Fixed: _FFTabExists
+
+V0.4.0.7:
+	- Changed: _FFGetObject added "." as shortcut for window.content.document e.g. _FFGetObject($Socket,".forms[0]")
+	- Fixed: _FFGetObject
+
+V0.4.0.6:
+	- New: _FFXPath now returns an array for UNORDERED_NODE_SNAPSHOT_TYPE and ORDERED_NODE_SNAPSHOT_TYPE
+	- Changed: _FFXPath changed numbers for $iReturnType
+	- Fixed: Error in _FFSetGet
+	- Fixed: _FFDispatchKeyEvent: events now case insensitiv
+	- Fixed: __FFStartProcess (_FFStart) now works with different ports, again
+
+V0.4.0.5:
+	- New: String-filter now are working, + HTML-tag filter
+	- Changed: _FFGetValueByXPath to
+	_FFXPath(ByRef $Socket, $sQuery[, $sAttribute = "textContent"[, $iReturnType = 0[, $iFilter = 1]]])
+	now you can get and set attributes by a XPath query.
+	- Fixed: _FFLoadWait: Added an additional check for the nsIWebProgress / webProgress.busyFlags
+	- Fixed: _FFFormSubmit by Id is now working
+	- Removed: Constants for string-filter
+
+V0.4.0.4:
+	- Removed: the event linstener for _FFLoadWait and used the nsIWebProgress interface instead.
+	- Removed: _FFKeyPress, use _FFDispatchKeyEvent instead
+
+V0.4.0.3:
+	- Changed: _FFLoadWait now works with the EventListener "DOMContentLoaded"
+		removed last parameter from _FFLoadWait
+	- Changed: Renamed _FFKeyPress to _FFDispatchKeyEvent and added a new parameter for the event type:
+		_FFDisPatchKeyEvent(ByRef $Socket, $sObject, $iKeyCode[, $sEventType = "keydown"])
+	- Fixed: _FFStart start-mode 1: added option  -new-window to the FF commandline
+	- Misc: Added german function description (Beschreibung)
+	- Removed: __FFGetBrowserVersion
+	- Removed: wrappedJSObject from _FFSetGet (hope that works)
+
+
+V0.4.0.2:
+	- New: _FFGetObject: Returns a 2 dim array with informations of an object in FF
+	_FFGetObject(ByRef $Socket[, $sObject = "window"])
+	- New: _FFFormGetLength: Returns the length of the forms
+	- New: Global Const $_FF_AU3VERSION = FF.au3 Version
+	- New: Global var $_FF_ERROR_MSGBOX = True = show errors in msgboxes if compiled
+	- Changed: _FFKeyPress: Now you can can simulate every key on every object
+	_FFKeyPress(ByRef $Socket, $sObject, $iKeyCode)
+	- Misc: Disabled the output to the console while transfering the JavaScripts and
+	in the function _FFLoadWait
+
+	!! Only for test
+	- New: Global Array with the last error:
+		$_aFF_ERRORS[0][0] time
+		$_aFF_ERRORS[0][1] function
+		$_aFF_ERRORS[0][2] error int
+		$_aFF_ERRORS[0][3] error string
+		$_aFF_ERRORS[0][4] message
+V0.4.0.1:
+	- Optimized: _FFLoadWait, _FFFormSubmit, _FFStart, __FFStartProcess
+
+V0.4.0.0:
+	- New/Changed: Added parameter $iFilter to (instead of $bCompress)
+	_FFReadHTML, _FFReadText, _FFGetValueById, _FFGetValueByName, _FFGetValueByXPath
+	Values are:
+	$_FF_FILTER_NONE = 0		; no filter
+	$_FF_FILTER_NONE_ASCII = 1	; remove non ASCII characters
+	$_FF_FILTER_WHITESPACES = 2	; remove all double whitespaces
+	$_FF_FILTER_LINEFEEDS= 4	; remove all double linefeeds
+	you combinate them with +
+
+	- New: _FFFormGetLength
+	- Added: _FFTabAdd parameter $bLoadWait
+	- Added: _FFFormSubmit parameter $bLoadWait
+	- Changed: _FFFrameSelected => _FFFrameGetSelected
+	- Changed: _FFTabLength => _FFTabGetLength
+	- Changed: _FFTabSelected => _FFTabGetSelected
+	- Changed: _FFTabSelect => _FFTabSetSelected
+	- Changed: _FFGetLinks => _FFLinksGetAll
+	- Optimized: _FFFormReset
+	- Updated: __FFIsURL - RegEx
+
+V0.3.6.1:
+	- New: _FFTableGetCell(ByRef $Socket, $vTable, $iColumn, $iRow[, $sMode = "index"[, $sReturnMode = "text"[, $bCompress = true]]])
+		Gets the text or HTML of a table cell.
+	- New: _FFGetValueByXPath(ByRef $Socket, $sQuery[, $sReturnType = "string"[, $iFilter = 1]])
+		Returns value from a XPath query
+	- Changed: $_FF_COM_TRACE is now a var instead of const, e.g. for many communication you can use
+		If Not @COMPILED Then $_FF_COM_TRACE = False
+		when the script is running in an editor.
+	- Fixed: _FFGetLength, error when $sMode was an empty string
+V0.3.6.0:
+	- Added: _FFFormSubmit now with $bLoadWait parameter, default = true
+	- Changed: _FFGetValueById now sets error $_FF_ERROR_NoMatch if "id" is not found
+	- Changed: _FFGetValueByName now sets error $_FF_ERROR_NoMatch if "name" is not found
+	- Changed: _FFSetValueById now returns now 1 by success, otherwise 0, added parameters checks
+	- Changed: _FFSetValueByName now returns now 1 by success, otherwise 0, added parameters checks
+	- Changed: _FFLinksGetAll now returns an array with infomations of all links
+	- Changed: Now WinTitleMatchMode is only changed in the internal function __FFConnect
+	- Removed some parameter checks in internal-functions
+	- Optimized all JavaScripts
+
+V0.3.5.9:
+	- Removed error message on the first connection
+	- Removed FF-status messages form _FFLoadWait
+	- browser version now only checked on the first connection
+	- optimized communication speed
+	- changed FF_AutoItScript.SimulateClick to click on X/Y coordinates
+	- changed _FFFrameEnter now returns the name or index depending
+	on the mode
+
+V0.3.5.8:
+	RENAMED SOME FUNKTIONS! I have some wrappers build in, but I removed
+	them in the future:
+	- _FFGetLinks => _FFLinksGetAll
+	- _FFTabSelect => _FFTabSetSelected
+	- _FFTabSelected => _FFTabGetSelected
+	- _FFTabLength => _FFTabGetLength
+
+V0.3.5.7:
+	* NEW: _FFTabDuplicate(ByRef $Socket[, $vTab = -1[, $sMode = "index"[, $bToFront = false]]])
+	* CHANGED: _FFTabClose, complete new, now returns 1 on success otherwise 0
+	* UPDATED: _FFTabCloseAll
+
+V0.3.5.6:
+	* NEW: _FFLoadWait: Added Default keyword for $iDelay and $iTimeOut
+	* NEW: _FFGetLength: Added "tables"
+	* CHANGED!!!: _FFAction: replaced all "true" and "false" strings with boolean true / false
+	* CHANGED: _FFFormReset now returns 1 on success otherwise 0
+	* CHANGED: _FFFormCheckBox, now returns -1 on error
+	* CHANGED: _FFGetLinks, removed the parameter "length"
+	if @error the return value is now -1
+	Use instead: _FFGetLength()
+	* OPTIMIZED: _FFClick
+
+V0.3.5.5:
+	* CHANGED: __IsURL now returns true by local files.
+	* CHANGED: If the name of an input type submit = submit then _FFFormSubmit
+	tries to click on the submit button.
+
+V0.3.5.4:
+	* NEW: Added: _FFFormOptionSelect
+
+V0.3.5.3:
+	* NEW: Added a console-message to _FFQuit
+	* NEW: Added: default parameter for a blank page in _FFTabAdd:
+	_FFTabAdd($Socket, Default) and return-values
+	* NEW: Added some parameter checks to _FFFrameEnter
+	* NEW: Added history, applets, embeds and plugins to _FFGetLength
+	* NEW: Added the keywords "all, selected, prev, next, first, last" to _FFTabClose
+	* Optimized: _FFGetLength, _FFFrameEnter, _FFFrameSelected, _FFFormCheckBox,
+	_FFTabAdd, _FFTabClose, _FFTabSelect
+
+V0.3.5.2
+	* NEW: _FFGetLinks is much faster now, because all informations
+	collected via JavaScript now.
+	* NEW: A new JavaScript (internal)function: FF_GetLinks(sInfo,iFrame)
+	* NEW: _FFAction / copy works now with frames, too.
+	If there multiple selections in different frames, they are returned
+	as one string with a delimiter (| by default or an other one as $sOption)
+	Multiple selections in one page are not supported yet, they are returned
+	as one string.
+	* FIXED: Error message from FF if the profile "default" was as -P parameter in the FF
+	commandline
+	* FIXED: Added workaround in _FFStart() to start FF in hidden mode
+	* MISC: Browser version is now only checked at the first connection
+	* MISC: Removed an unused JavaScript function
+
+V0.3.5.1
+	* NEW: now you can use with _FFClick tag-names, too:
+	e.g.: _FFClick($Socket,"img","tag",7)
+	* NEW: added "copy" to _FFAction: returns the current selected
+	text
+	* NEW: added a simple "reload" without options to _FFAction
+	* REMOVED: search/find with options from _FFAction -
+	use _FFSearch instead.
+	* MISC: Renamed in _FFClick objects to elements (like in DOM)
+
+V0.3.5.0
+* !!! Changed: Removed all $iTabIndex parameters, was in every function
+	the last parameter except in:
+	_FFOpenURL
+	_FFReadHTML
+	_FFReadText
+
+V0.3.4.1
+	* NEU: Shortcut fuer: chrome://mozapps/content/downloads/downloads.xul
+		"downloads"
+	* NEU: _FFClick: ID und name / index kann nun direkt angegeben werden
+
+V0.3.4.0
+	* NEU: _FFSearch(ByRef $Socket, $sSearchString[, $bCaseSensitive = false[, $bBackwards = false[, $bWrapAround = true[, $bWholeWord = false[, $bSearchInFrames = true[, $iDelay = 0]]]]]])
+
+V0.3.3.9
+	* NEU: _FFAction find und search erweitert auf:
+	caseSensitive = false
+	backwards = false
+	wrapAround = true
+	wholeWord = false
+	searchInFrames = true
+	showDialog = false
+V0.3.3.8
+	* NEU: _FFKeyPress: Simuliert einen Tastendruck FireFox
+	* NEU: _FFLoadWait: Optinaler Parameter nach wieviel Prozent
+	des Ladestatus' die Funktion 1 zurueckgibt:
+	_FFLoadWait(ByRef $Socket[, $iDelay = 0[, $iTimeOut = 10000[, $iPercent = 100]]])
+V0.3.3.7
+	* NEU: _FFLoadWait, zeigt nun waehrend des Wartens "_FFLoadWait ..." in der
+	Browser-Status-Leiste an.
+	* Korrigiert: _FFFormSubmit, _FFFormReset geben nun @error zurueck
+
+V0.3.3.6
+	* Korrigiert: Ein paar Warnungen von Au3Check in _FFTableWriteToArray beseitigt
+	* Geandert: Geschwindigkeitspotimierungen
+
+V0.3.3.5
+	* NEU: _FFTableWriteToArray
+	(ByRef $Socket, $vTable [, $sMode = "index" [, $sReturnMode = "text" [, $fTransponse = False [, $iTabIndex = -1]]]])
+
+V0.3.3.4
+	* NEU: _FFFrameSelected: Jetzt kann auch der Name des akutellen Frames
+	abgefragt werden. _FFFrameSelected($Socket,"name")
+	* Geaendert: __FFIsURL benutzt nun die RegEx von:
+	http://geekswithblogs.net/casualjim/archive/2005/12/01/61722.aspx
+	* Geandert: $_FF_CON_DELAY ist nun ping-Zeit + 5ms (vorher 10ms)
+
+V0.3.3.3
+	* NEU: _FFTabCloseAll: schliesst alle Tabs, ausser dem aktuellen
+	* Optimiert: _FFClick, _FFClickLink, _FFGetLength
+	* Korrigiert: _FFSetValueByName/Id: Sonderzeichen
+	werden nun vor dem Senden fuer JavaScript maskiert:
+	\ " ' @tab @cr @crlf
+	* Korrigiert: _FFGetLength: styleSheets-Abfrage
+
+V0.3.3.2
+	* Geaendert: __FFIsURL: RegEx ueberarbeitet
+	(Probleme bei URLs mit Tief- und Bindestrich)
+	* Korrektur: JavaScripts an die Frame-Funktionen angepasst
+	(alle Objekte beinhalten nun eine Frame-Angabe, ist keiner
+	vorhanden wird als Frame "top" angegeben)
+
+V0.3.3.1
+	* NEU: _FFGetLinks: Start und End Index der abzufragenden Links kann angegeben werden:
+	_FFGetLinks(ByRef $Socket[, $sMode = "href"[, $iStart = 0[, $iEnd = 1[, $iTabIndex = -1]]]])
+	* Geaendert: Status der Frames werden nun nicht mehr in FF gespeichert sondern in einem
+	globalen Array
+	* Geaendert: _FFLoadWait beendet sich nun schon bei >= 97 Prozent, da manchmal der
+	Status einfach bei 99% "haengen" bleibt
+
+V0.3.3.0:
+	* NEU: An die API von FireFox V3 angepasst.
+	* NEU: _FFFrameEnter: Alle nachfolgenden Funktionen beziehen sich auf den angegebenen Frame bis ...
+	* NEU: _FFFrameLeave: ... man ihn wieder verlaesst.
+	* NEU: _FFFrameSelected: Gibt den Index des aktuellen Frames zur�ck.
+	* NEU: _FFStart: Parameter erweitert: iMode + 8 ermmoeglicht das starten verschiedener
+	* NEU: _FFTabSelect: Bei Prev und Next wird nun am Ende zum anderen Ende gesprungen
+	( benutzt nun advanceSelectedTab( dir, wrap ) anstatt von selectedIndex = n )
+	Instanzen mit unterschiedlichen Profilen. (Danke an progandy!)
+	(_FFStart, __FFStartProcess)
+	* Geaendert: __FFSend nimmt keine Arrays mehr entgegen
+	* Korrektur: _FFFormCheckBox, Auswahl ueber "value" funktioniert wieder
+
+V0.2.9.9:
+	* Geaendert: Alle JavaScript-Variablen und Funktionen in das Object "FF_AutoItScript" gepackt.
+	* Korrektur: Fehlermeldungen von MozRepl werden jetzt stabiler ueberprueft
+
+V0.2.9.8
+	* Neu: _FFClickImageBySize:
+	_FFClickImageBySize($Socket, $iHeight, $iWidth, $sMode="eq", $sTarget = "_blank", $iTabIndex = -1)
+	$sMode = eq, lt, gt
+	* Neu: _FFConnect gibt nun die IP und den Port in der Console aus.
+	* Neu: Bei _FFStart (__FFStartProcess):
+	MozRepl wird nun mit dem angegbenen Port startet.
+	!!! Der Port wird leider nicht im MozRepl-Menue angezeigt !!!
+	@error = $_FF_ERROR_InvalidValue, bei unbekanntem $iMode
+	* Neu: _FFClickLink: @error = $_FF_ERROR_InvalidValue, bei unbekanntem $sMode
+	* Neu: _FFClickImage: @error = $_FF_ERROR_InvalidValue, bei unbekanntem $sMode
+	* Neu: _FFAction: @error = $_FF_ERROR_InvalidValue, bei unbekannter $sAction oder $sOption
+	* Neu: _FFClickLink: @error = $_FF_ERROR_InvalidValue, bei unbekanntem $sMode
+	* Neu: _FFCheckBox: @error = $_FF_ERROR_InvalidValue, bei unbekanntem $sBMode
+	* NEU: _FFSetGet ueberprueft nun auch auf Tab-Index >= -1 (aktueller Tab)
+	* Neu: _FFTabClose: @error = $_FF_ERROR_InvalidValue, bei unbekanntem $sMode
+	* Neu: _FFTabSelect: @error = $_FF_ERROR_InvalidValue, bei unbekanntem $sMode
+	* Neu: _FFTabSelected: @error = $_FF_ERROR_InvalidValue, bei unbekanntem $sMode
+	* Geaendert: JavaScripts werden nun alle auf einmal uebertragen. (schnellerer Verbindungsaufbau)
+	* Korrektur: Default-Keyword in _FFStart, _FFConnect
+	* Korrektur: _FFClickImage: Bei dem Modi "index" wurde anstatt des Bild-
+	der Link-Index genommen.
+	* Korrektur: _FFQuit: Nach dem Senden von close(), erzeugte das anschliessende
+	_FFDisConnect einen Fehler. Jetzt wird der @error von TCPSend als Return Value
+	zurueckgegeben.
+
+V0.2.9.7
+	* NEU: _FFFormRadioButton (im Prinzip nur ein Wrapper fuer _FFFormCheckBox)
+	* NEU: __FFWaitForRepl: Setzt nun MozRepl zurueck, falls etwas gesendet
+	wurde wodurch MozRepl zu "....>" gewechselt ist.
+	* Geaendert: __FFError benutzt nun ConsoleWriteError anstatt ConsoleWrite
+	* Korrektur: _FFClickImage:
+	- schreibt nun eine Fehlermeldung in die Console, falls ein Bild nicht gefunden wurde
+	und versucht dann nicht mehr darauf zu "klicken".
+	- Pfade erzeugten einen Fehler da die RegEx nicht mit den Sonderzeichen zurechtkam.
+	Die Zeichen ( / . ? + = ) werden nun maskiert.
+	* Korrektur: __FFRecv gibt nun den Fehlercode von __FFWaitForRepl richtig weiter
+	* Korrektur: _FFSetGet erzeugt bei einem MozRepl-Fehler nun ebenfalls eine Fehlermeldung
+	(damit z.B. nicht ewige _FFLoadWait Schleifen entstehen, falls man sich z.B im DOM-Inspector
+	befindet ... )
+
+V0.2.9.6
+	* Neu: _FFStart, _FFConnect, _FFFormCheckBox:
+	Bei allen Parametern kann nun auch das AutoIT-Keyoword:
+	Default
+	angegeben werden
+	* Neu: _FFTabAdd:
+	URL kann angegeben werden
+	$bSelect ist nun als default true
+	* Geandert!!!: _FFSetGet, __FFRecv:
+	Rueckgabewerte nun nicht mehr innerhalb von doppelten Anfuehrungszeichen!!!
+	* Geandert: _FFSetValueByName: Parameter
+	$sValue = ""
+	als Default Wert (wie schon bei _FFSetValueById)
+
+V0.2.9.5
+	* Korrigiert: _FFTabExists / FF_SearchTab
+	* Geandert: __FFSendJavaScripts: optionaler Parameter $bRefresh (JavaScripts senden, auch wenn
+	sie schon mal gesendet wurden)
+	* Geandert: _FFTabSelect: Default "index" anstatt "first"
+	* Geandert: _FFAction:
+	Alle Tab-Funktionen entfernt!!!
+	Browser interne Funktionen durch tabbrowser Methoden ersetzt.
+	http://developer.mozilla.org/en/docs/XUL:tabbrowser
+	* Geandert: _FFTabClose:
+	Browser interne Funktionen durch tabbrowser Methoden ersetzt.
+	http://developer.mozilla.org/en/docs/XUL:tabbrowser
+
+V0.2.9.4
+	* Neu: Die Variable "FF_JavaScriptsInstalled" wird nun beim erstmaligen
+	Senden der JavaScript-Funktionen innerhalb von FF auf "true" gesetzt,
+	beim erneuten Verbinden zu FF abgefragt und falls vorhanden, werden die Scripts
+	nicht erneut gesendet. Das macht den Verbindungsaufbau wesentlich schneller.
+
+	* Neu: Optionen fuer _FFAction($Socket,"reload", ...)
+	Flags:
+	* LOAD_FLAGS_NONE: No special flags. The document is loaded normally.
+	* LOAD_FLAGS_BYPASS_CACHE: Reload the page, ignoring if it is already in the cache. This is the flag used when the reload button is pressed while the Shift key is held down.
+	* LOAD_FLAGS_BYPASS_PROXY: Reload the page, ignoring the proxy server.
+	* LOAD_FLAGS_CHARSET_CHANGE: This flag is used if the document needs to be reloaded because the character set changed.
+	You may combine flags using a or symbol ( | ).
+	z.B.:
+	_FFAction($Socket,"reload","LOAD_FLAGS_BYPASS_CACHE|LOAD_FLAGS_BYPASS_PROXY")
+
+V0.2.9.3
+	* Korrektur: _FFQuit ( BrowserShutdown() durch close() ersetzt )
+	* Korrektur: _FFDisConnect ( CRLF an Consolenausgabe angehaengt )
+	* Geaendert: __FFSendJavaScripts (__FFSend durch _FFSetGet ersetzt )
+
+V0.2.9.2 (30. Mai 2008)
+	* NEU: _FFClick: (siehe _FFSetGet V0.2.9.1)
+	* Korrektur: _FFAction($Socket,"presentationmode","false")
+	* Korrektur: _FFTabLength
+
+V0.2.9.1 (27. Mai 2008)
+	* NEU: _FFSetGet: Anstatt _FFSetGet($Socket,"content.document.forms[0].elements[2].click()")
+	kann nun als Abkuerzung _FFSetGet($Socket,".forms[0].elements[2].click()") eingegeben
+	* Korrektur: Fehler in __FFSend behoben. Es wurde das erste Element des uebergebenen Array gesendet
+
+V0.2.9.0 (27. Mai 2008)
+	* NEU: _FFSetGet: Anstatt _FFSetGet($Socket,"content.document.forms[0].elements[2].click()")
+	kann nun als Abkuerzung _FFSetGet($Socket,".forms[0].elements[2].click()") eingegeben
+	werden. Das funktioniert nur, wenn der fuehrende Punkt vorhanden ist!
+	* Geandert: _FFSetGet: TimeOut als neuer Parameter !! Parameter Reihenfolge
+	dadurch geaendert!!
+	* Geandert: _FFConnect gibt die Zeit fuer $_FF_CON_DELAY in der Konsole aus.
+	* NEU: FireFTP als Shortcut fuer chrome: oeffnet FireFTP z.B.:
+	_FFAction($Socket,"chrome","fireftp") oder _FFOpenURL($Socket,"chrome:fireftp")
+
+V0.2.8.8 (29. Mar. 2008)
+	* Neu: _FFAction:
+		blank - ruft eine leere Seite auf
+		about - ruft die "About"-Seite auf
+
+V0.2.8.7 (16. Mar. 2008)
+	* NEU: _FFTabLength: Liefert die aktuelle Anzahl an Tabs zurueck (nur eine
+		Vereinfachung von: _FFGetLength($Socket, $sMode = "tabs")
+	* NEU: _FFTabSelected: Liefert den Index oder das Label des aktiven Tabs
+	* NEU: _FFAction: Vereinfachungen:
+		Minimize OR Min
+		Maximize OR Max
+		FullScreen OR FS
+		PresentationMode OR PM
+	* Korrigiert: _FFFormSubmit
+	* Korrigiert: _FFTabSelect
+	* Geandert: Uebergabe von $Socket an _FFTabAdd und _FFTabClose nun ByRef
+	* Vervollstaendigt: User-Calltips
+
+V0.2.8.6 (31. Jan. 2008):
+	* Vervollstaendigt: _FFTabClose
+
+V0.2.8.5 (27. Jan. 2008):
+	* Optimiert: _FFTabSelect -> Default-Mode ist nun "first", Parameterreihenfolge geaendert!
+
+V0.2.8.4 (23. Jan. 2008):
+	* Optimiert: __FFSendJavaScripts -> schnellerer Verbindungsaufbau zu FF
+
+V0.2.8.3:
+	* Korrektur: Abfrage auf "100" Prozent in _FFLoadWait geaendert
+
+V0.2.8.2:
+	* NEU: _FFStart: @extended liefert nun die PID zurueck (Bei Fehler -1)
+
+V0.2.8.1:
+	* Geaendert: _FFDisconnect: Debug und Fehlerinformation eingebaut
+
+V0.2.8.0
+	* NEU:  _FFTabAdd($Socket,$bSelect = false)
+	* NEU:  _FFTabClose($Socket,$vTab = -1,$sMode = "index")
+	* NEU:  _FFTabExists(ByRef $Socket, $sLabel)
+	* NEU:  _FFTabSelect(ByRef $Socket, $vTab, $sMode = "index")
+		$sMode: "index", "prev", "next", "first", "last", "label"
+	* NEU: __FFSendJavaScripts: FF__SearchTab(sLabel)
+
+V0.2.7.9
+	* NEU: _FFFormCheckBox(
+		ByRef $Socket,
+		$bChecked = 1,
+		$sName,
+		$iIndex = 0,
+		$vForm = 0,
+		$sMode = "index" ,
+		$iTabIndex = -1)
+
+V0.2.7.7
+	* NEU: _FFFormSubmit: Schickt das angegebene Formular ab.
+	* NEU: _FFFormReset: Setzt das angegebene Formular zurueck
+	* Aenderung: _FFSend und _FFRecv zu internen Funktionen (__FFSend, __FFRecv)
+	umgewandelt und aus Dokumentation entfernt
+
+V0.2.7.6
+	* NEU: _FFGetLength: Gibt die Anzahl folgender Elemente zurueck:
+	links, images, forms, frames, anchors, styleSheets, tabs
+	* NEU: _FFStart besitzt nun 3 Startmodi
+	* NEU: __FFStartProcess: Hilfsfunktion um FF zu starten
+	* Geaendert: _FFConnect nun mit Timeout
+
+V0.2.7.5
+	* NEU: _FFClickLink - klickt auf den angegebenen Link, mit der Auswahl zwischen
+	href, text, name, title, id und index
+	* Korrektur: Error und Rueckgabewert in _FFClickImage, wenn nichts gefunden wurde
+	* Optimiert: _FFLoadWait, _FFConnect, _FFDisConnect, _FFReadHTML, _FFReadText,
+	__FFRecv, __FFWaitForRepl, __FFChromeSelect
+
+	ToDo (in der Reihenfolge)
+	* _FFTable ...
+	* Aktionen: SelectAll, Copy ...
