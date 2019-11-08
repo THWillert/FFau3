@@ -19,3 +19,4 @@ Anwendungsbeispiele der FF.au3:
 - Nachverfolgung von Links
 - ...
 
+Das Projekt ist nur noch für Demonstrationszwecke vorhanden.
