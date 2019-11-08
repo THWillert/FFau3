@@ -1,5 +1,5 @@
 # FFau3
-AutoIt Adapter für FireFox &lt; V57
+AutoIt UDF für FireFox &lt; V57
 
 Die FF.au3 ist eine Bibliothek für die Windows-Programmiersprache AutoIt.
 
