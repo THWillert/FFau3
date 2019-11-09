@@ -7,7 +7,6 @@ In Verbindung mit dieser Programmiersprache, dem Web-Browser FireFox und dem Add
 D.h.: alles was ein Benutzer mit FireFox bewerkstelligen kann (und vieles darüber hinaus), läßt sich damit programmieren.
 
 ___
-:warning:
 
     Achtung!
     Die FF.au3 funktionert ab der Version 57 von FireFox, wegen der API-Änderung, nicht mehr!
@@ -25,4 +24,6 @@ Anwendungsbeispiele der FF.au3:
 - Nachverfolgung von Links
 - ...
 
-Das Projekt ist nur noch für Demonstrationszwecke vorhanden.
+___
+
+:warning: **Das Projekt ist nur noch für Demonstrationszwecke vorhanden.**
